@@ -22,22 +22,22 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-apt-get update -y && apt-get upgrade -y
+sudo apt-get update -y && sudo apt-get upgrade -y
 
 #Timezone
-unlink /etc/localtime
-ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
-dpkg-reconfigure -f noninteractive tzdata
+sudo unlink /etc/localtime
+sudo ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+sudo dpkg-reconfigure -f noninteractive tzdata
 
 #Uninstall old Docker if any
-apt-get remove docker docker-engine docker.io containerd runc -y
+sudo apt-get remove docker docker-engine docker.io containerd runc -y
 
 # Docker Dependencies
-apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
 #Import keys
-curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
-apt-get update && apt-get install docker-ce docker-ce-cli containerd.io -y
+sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io -y
