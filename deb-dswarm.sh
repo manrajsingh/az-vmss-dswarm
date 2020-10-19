@@ -30,10 +30,10 @@ ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 
 #Uninstall old Docker if any
-apt-get remove docker docker-engine docker.io containerd runc
+apt-get remove docker docker-engine docker.io containerd runc -y
 
 # Docker Dependencies
-apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
 #Import keys
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
